@@ -20,10 +20,22 @@ export default function App() {
   const [number, setNumber] = useState(false)
   const [symbol, setSymbol] = useState(false)
 
-  const generatePasswordString = (passwordLength: Number) => {
-    
+  const generatePasswordString = (passwordLength: number) => {
+    // Functionality
   }
 
+  const createPassword = (characters: string, passwordLength: number) => { 
+    let result = ''
+    for (let i = 0; i < passwordLength; i++) {
+      const characterIndex = Math.floor(Math.random() * characters.length)
+      result += characters.charAt(characterIndex)
+    }
+    return result
+  }
+
+  const resetPasswordState = () => {
+    // Functionality
+  }
 
   return (
     <View>
