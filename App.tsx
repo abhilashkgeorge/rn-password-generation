@@ -21,7 +21,32 @@ export default function App() {
   const [symbol, setSymbol] = useState(false)
 
   const generatePasswordString = (passwordLength: number) => {
-    // Functionality
+    let characterList = ''
+    const lowerCaseCharacters = 'abcdefghijklmnopqrstuvwxyz'
+    const upperCaseCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    const digits = '1234567890'
+    const specialCharacters = '!@#$%^&*()-_+=?><|'
+
+    if (lowerCase) {
+      characterList += lowerCaseCharacters
+    }
+
+    if (upperCase) {
+      characterList += upperCaseCharacters
+    }
+
+    if (number) {
+      characterList += digits
+    }
+
+    if (symbol) {
+      characterList += specialCharacters
+    }
+
+    const passwordResult  = createPassword(characterList, passwordLength)
+    setPassword(passwordResult)
+    setIsPasswordGenerated(true)
+
   }
 
   const createPassword = (characters: string, passwordLength: number) => { 
@@ -34,7 +59,12 @@ export default function App() {
   }
 
   const resetPasswordState = () => {
-    // Functionality
+    setPassword('')
+    setLowerCase(false)
+    setUpperCase(false)
+    setIsPasswordGenerated(false)
+    setNumber(false)
+    setSymbol(false) 
   }
 
   return (
